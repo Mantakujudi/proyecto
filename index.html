@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaBirthDay</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <div id="contenedorPrincipal" class="contenedorPrincipal">
+        <div id="bloqueInfo" class="bloqueInfo">
+            <h1>¡Bienvenido a AquaBirthDay!</h1>
+            <div id="categorias" class="categorias">
+                <p class="aquabirthday">AquaBirthDay</p>
+                <p class="comoReservo">¿Cómo reservo?</p>
+                <p class="tarifas">Tarifas</p>
+                <p class="normas">Normativa</p>
+                <p class="contacto">Contáctanos</p>
+            </div>
+        
+            <div id="bloqueInfo" class="bloqueInfo">
+                <div id="infoAquabirthday" class="infoHidden">
+                    <p>Bienvenidos a AquaBirthDay, un espacio en el cual tus hijos/as podrán disfrutar
+                        de actividades en el agua durante todo el año gracias a nuestra piscina climatizada y
+                        cubierta, así como también podremos realizar otras actividades para los más pequeños como
+                        juegos lúdicos en nuestras salas deportivas y terraza. 
+                        AquaBirthDay nace de la necesidad de ofrecer a nuestros clientes de Time Centro Deportivo un 
+                        espacio lúdico para poder celebrar cumpleaños y eventos dentro del mismo recinto en el que ellos entrenan.
+                        
+                        Ponemos a disposición del consumidor nuestras instalaciones deportivas, así como también 
+                        tendremos disponible la cafetería del centro, dentro de la cual se celebrará la recepción 
+                        y la posterior merienda de los invitados al evento.
+                    </p>
+                </div>
+            </div>
+    </div>
+        
+        <div id="bloqueCalendario" class="bloqueCalendario">
+            <div id="calendarioCompleto" class="calendarioCompleto">
+                <img id="alertaInfo" class="alertaInfo" src="img/btnVolver.png">
+                <div id="controlCalendario" class="controlCalendario">
+                    <button id="prevMes" class="prevMes"><img src="img/balloons.png" width="50"></button>
+                    <div id="mesActual" class="mesActual"></div>
+                    <button id="nextMes" class="nextMes"><img src="img/balloons.png" width="50"></button>
+                </div>
+
+                <div id="diasSemana" class="diasSemana">
+                    <div>L</div>
+                    <div>M</div>
+                    <div>X</div>
+                    <div>J</div>
+                    <div>V</div>
+                    <div>S</div>
+                    <div>D</div>
+                </div>
+                <div id="calendar" class="calendar"></div>
+
+                <div id="horarios" class="horarios">
+                    <p id="disponibilidad" class="disponibilidad">Horarios disponibles</p>
+                    <div id="horas" class="hidden"></div>
+                    <br>
+                </div>
+            </div>   
+        </div>
+
+        <form id="formReserva" class="hidden">
+            <img id="btnVolverCalendario" class="btnVolverCalendario" src="img/btnVolver.png">
+            <Fieldset class="tutor" id="tutor">
+                <legend>Tutor/a</legend>
+                <input type="text" name="nombre_tutor" placeholder="Nombre y Apellidos" required>
+                <input type="text" name="dni" placeholder="DNI" required>
+                <input type="text" name="telefono" placeholder="Teléfono" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </Fieldset>
+
+            <fieldset class="cumpleañero" id="cumpleañero">
+                <legend>Cumpleañero/a</legend>
+                <input type="text" name="nombre_cumple" placeholder="Nombre" required>
+                <input type="number" name="edad" placeholder="Edad" required>
+            </fieldset>
+
+            <fieldset class="invitados" id="invitados">
+                <legend>Invitados</legend>
+                <input type="number" name="cantidad" placeholder="Cantidad" required>
+            </fieldset>
+
+            <fieldset class="cafeteria" id="cafeteria">
+                <legend>Cafetería</legend>
+                <select name="tipo_merienda">
+                    <option value="Paninis">Paninis</option>
+                    <option value="Bocadillos">Bocadillos</option>
+                </select>
+                <input type="text" name="alergias" placeholder="Alergias">
+                <input type="text" name="bolsa_chuches" placeholder="Bolsa de chuches">
+            </fieldset>
+
+            <input type="hidden" name="fecha" id="fechaSeleccionada">
+            <input type="hidden" name="hora" id="horaSeleccionada">
+
+            <br>
+
+            <button type="submit" id="enviarFormulario">Enviar formulario</button>
+        </form>
+
+        <div id="confirmacion" class="hidden"></div>
+
+        <div id="confirmacionReserva" class="hidden">
+
+            <img id="btnVolver" class="btnVolver" src="img/btnVolver.png">
+
+            <fieldset class=datosConfirmacion>
+                <legend>Confirmación de la reserva</legend>
+                <p><b>Fecha del cumpleaños:</b> <span id="confFecha"></span></p>
+                <p><b>Hora del cumpleaños:</b> <span id="confHora"></span></p>
+                <p><b>Tutor/a:</b> <span id="confTutor"></span></p>
+                <p><b>DNI:</b> <span id="confDni"></span></p>
+                <p><b>Teléfono:</b> <span id="confTelefono"></span></p>
+                <p><b>Email:</b> <span id="confEmail"></span></p>
+                <p><b>Cumpleañero/a:</b> <span id="confCumple"></span></p>
+                <p><b>Edad:</b> <span id="confEdad"></span></p>
+                <p><b>Cantidad de invitados:</b> <span id="confInvitados"></span></p>
+                <p><b>Tipo de merienda:</b> <span id="confMerienda"></span></p>
+                <p><b>Alergias:</b> <span id="confAlergias"></span></p>
+                <p><b>Bolsa de chuches:</b> <span id="confChuches"></span></p>
+            </fieldset>
+
+            <fieldset class="metodoPago">
+                <legend>Método de pago</legend>
+                <label><input type="radio" name="pago" value="bizum" required>Bizum</label>
+                <label><input type="radio" name="pago" value="efectivo" required>Efectivo</label>
+            </fieldset>
+
+            <fieldset class="normativa">
+                <legend>Normativa y Reserva</legend>
+                <label><input type="checkbox" required>He leído y acepto la <a href="pdf/normativa_aquabirthday.pdf" target="_blank">Normativa de AquaBirthDay</a></label>
+            </fieldset>
+            <button id="btnReservar" class="btnReservar">Reservar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
