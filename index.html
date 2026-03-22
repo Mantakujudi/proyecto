@@ -8,6 +8,7 @@
     <title>AquaBirthDay</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
+    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
 <body>
@@ -15,30 +16,107 @@
     <div id="contenedorPrincipal" class="contenedorPrincipal">
         <div id="bloqueInfo" class="bloqueInfo">
             <h1>¡Bienvenido a AquaBirthDay!</h1>
-            <div id="categorias" class="categorias">
-                <p class="aquabirthday">AquaBirthDay</p>
-                <p class="comoReservo">¿Cómo reservo?</p>
-                <p class="tarifas">Tarifas</p>
-                <p class="normas">Normativa</p>
-                <p class="contacto">Contáctanos</p>
-            </div>
-        
-            <div id="bloqueInfo" class="bloqueInfo">
-                <div id="infoAquabirthday" class="infoHidden">
-                    <p>Bienvenidos a AquaBirthDay, un espacio en el cual tus hijos/as podrán disfrutar
-                        de actividades en el agua durante todo el año gracias a nuestra piscina climatizada y
-                        cubierta, así como también podremos realizar otras actividades para los más pequeños como
-                        juegos lúdicos en nuestras salas deportivas y terraza. 
-                        AquaBirthDay nace de la necesidad de ofrecer a nuestros clientes de Time Centro Deportivo un 
-                        espacio lúdico para poder celebrar cumpleaños y eventos dentro del mismo recinto en el que ellos entrenan.
+            <div class="fila">
+                <div id="categorias" class="categorias">
+                    <p class="registro">Registro/Login</p>
+                    <p class="aquabirthday">AquaBirthDay</p>
+                    <p class="comoReservo">¿Cómo reservo?</p>
+                    <p class="misReservas">Mis reservas</p>
+                    <p class="tarifas">Tarifas</p>
+                    <p class="normas">Normativa</p>
+                    <p class="contacto">Contáctanos</p>
+                </div>
+            
+                <div id="info" class="info">
+                    <div id="infoRegistro" class="info">
+                        <h3>Regístrate o accede a tu perfil</h3>
                         
-                        Ponemos a disposición del consumidor nuestras instalaciones deportivas, así como también 
-                        tendremos disponible la cafetería del centro, dentro de la cual se celebrará la recepción 
-                        y la posterior merienda de los invitados al evento.
-                    </p>
+                        <input type="email" id="emailUsuario" placeholder="correo electrónico">
+                        <input type="password" id="passwordUsuario" placeholder="contraseña">
+
+                        <button id="btnRegistro">Login</button>
+                        <button id="btnRegistro">Registro</button>
+
+                        <p id="mensajeAuth"></p>
+                    </div>
+                    <div id="infoMisReservas" class="info hidden">
+                        <h3>Mis reservas</h3>
+                        <div id="contenedorReservas"></div>
+                    </div>
+                    <div id="infoAquabirthday" class="info hidden">
+                        <p><img class="imagen1" src="img/imagen1.png" alt="piscina">
+                            AquaBirthDay es un espacio en el cual tus hijos/as podrán disfrutar de actividades en el agua durante todo el año gracias a nuestra piscina climatizada y cubierta, así como también podremos realizar otras actividades para los más pequeños como juegos lúdicos en nuestras salas deportivas y terraza.
+                        </p>
+                    </div>
+                    <div id="infoReserva" class="info hidden">
+                        <p>El proceso de reserva es muy sencillo:
+
+                            Paso n.1: Elegimos la fecha en nuestro calendario
+
+                            Paso n.2: Elegimos la hora que esté disponible
+
+                            Paso n.3: Rellenamos el formulario con los datos solicitados
+
+                            Paso n.4: Pulsamos el botón "Enviar Formulario"
+
+                            Paso n.5: Comprobamos que todos los datos son correctos
+
+                            Paso n.6: Elegimos el método de pago que más nos interese
+
+                            Paso n.7: Leemos la normativa y la aceptamos
+
+                            Paso n.8: Pulsamos el botón de Reservar y ¡listo!
+
+                            Pulsando el logotipo de AquaBirthDay, podrás volver hacia atrás en cada sección si necesitas modificar algún campo, la fecha o la hora.
+                        </p>
+                    </div>
+                    <div id="infoTarifas" class="info hidden">
+                        <p>Para la celebración de cumpleaños en AquaBirthDay hemos establecido los siguientes precios:
+
+                                - para cumpleaños de Viernes y Sábados en el horario establecido: 14€ por niño y mínimo 12 niños
+                                (incluye merienda y actividades en el centro. Tarta no incluida).
+
+                                - para cumpleaños en horario especial con el centro deportivo cerrado: 15€ por niño y mínimo 15 niños
+                                (incluye merienda y actividades en el centro. Tarta no incluida).
+
+                            En el caso de querer contratar un monitor extra: 30€ por cada monitor solicitado de forma adicional.
+                        </p>
+                    </div>
+                    <div id="infoNormativa" class="info hidden">
+                        <p>Aunque lo principal en AquaBirthDay es divertirse, hay que tener en cuenta una serie de normas:
+
+                                1. La recepción se hará en la cafetería del centro.
+
+                                2. El mínimo de niños son 12. Si vienen menos invitados, se cobrará el mínimo establecido.
+
+                                3. Se usará el vestuario infantil por defecto.
+
+                                4. No está permitida la entrada de padres/madres en la instalación deportiva a modo de "socorristas".
+
+                                Sí pueden hacer uso de los vestuarios para cambiar a sus hijos/as, o como acompañantes de niños/as menores
+                                de 3 años en el agua.
+
+                                5. Obligatorio traer gorro y bañador a la piscina. Se prohíbe el uso de ropa interior en el interior de la piscina.
+                        </p>
+                    </div>
+                    <div id="infoContacto" class="info hidden">
+                        <p>
+                            Ponemos a vuestra disposición los siguientes métodos de contacto:
+
+                                - teléfono del centro: 958 82 29 25
+
+                                - teléfono de cafetería: 000 00 00 00
+
+                                - correo electrónico: info@timecentrodeportivo.com
+
+                                - dirección: Av. Rambla de los Álamos, s/n, 18600 Motril (Granada)
+
+                                - página web del centro: https://www.timecentrodeportivo.com
+                        </p>
+                    </div>
                 </div>
             </div>
-    </div>
+        </div>
         
         <div id="bloqueCalendario" class="bloqueCalendario">
             <div id="calendarioCompleto" class="calendarioCompleto">

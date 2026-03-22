@@ -289,3 +289,50 @@ document.getElementById("btnVolver").onclick = function() {
 }
 
 generarCalendario();
+
+//--------------------------------------Función para enlazar la categoría con su info------------------------------
+
+let botones = document.querySelectorAll("#categorias p");
+let contenidos = document.querySelectorAll("#info > div");
+
+function ocultarTodo() {
+    contenidos.forEach(div => div.classList.add("hidden"));
+}
+
+botones.forEach(boton => {
+    boton.onclick = () => {
+
+        ocultarTodo();
+
+        if(boton.classList.contains("registro")) {
+            document.getElementById("infoRegistro").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("aquabirthday")) {
+            document.getElementById("infoAquabirthday").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("comoReservo")) {
+            document.getElementById("infoReserva").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("misReservas")) {
+            document.getElementById("infoMisReservas").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("tarifas")) {
+            document.getElementById("infoTarifas").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("normas")) {
+            document.getElementById("infoNormativa").classList.remove("hidden");
+        }
+
+        if(boton.classList.contains("contacto")) {
+            document.getElementById("infoContacto").classList.remove("hidden");
+        }
+    };
+});
+
+ocultarTodo();
+document.getElementById("infoRegistro").classList.remove("hidden");
