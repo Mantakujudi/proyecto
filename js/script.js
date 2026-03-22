@@ -336,3 +336,56 @@ botones.forEach(boton => {
 
 ocultarTodo();
 document.getElementById("infoRegistro").classList.remove("hidden");
+
+
+//---------------------------------Registro y Login de los usuarios---------------------------------
+
+let btnRegistro = document.getElementById("btnRegistro");
+let btnLogin = document.getElementById("btnLogin");
+let mensajeAuth = document.getElementById("mensajeAuth");
+
+//Funcionalidad para el registro de usuarios
+
+btnRegistro.onclick = async () => {
+
+    let email = document.getElementById("emailUsuario").value;
+    let password = document.getElementById("passwordUsuario").value;
+
+    let datos = new FormData();
+    datos.append("email", email);
+    datos.append("password", password);
+    datos.append("accion", "registro");
+
+    let res = await fetch("php/auth.php", {
+        method: "POST",
+        body: datos
+    });
+
+    let data = await res.json();
+
+    mensajeAuth.innerText = data.mensaje;
+};
+
+//Funcionalidad para el login de usuarios
+
+btnLogin.onclick = async () => {
+
+    let email = document.getElementById("emailUsuario").value;
+    let password = document.getElementById("passwordUsuario").value;
+
+    let datos = new FormData();
+    datos.append("email", email);
+    datos.append("password", password);
+    datos.append("accion", "login");
+
+    let res = await fetch("php/auth.php", {
+        method: "POST",
+        body: datos
+    });
+
+    let data = await res.json();
+
+    mensajeAuth.innerText = data.mensaje;
+
+};
+
