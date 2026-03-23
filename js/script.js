@@ -237,23 +237,32 @@ function guardarReserva(datos) {
         body: datos
     })
 
-    .then(res => res.text())
+    .then(res => res.json())
     .then(respuesta => {
 
-        if(respuesta === "ocupado") {
+        if(respuesta.status === "ocupado") {
             alert("Lo sentimos, esa fecha ya no está disponible.");
-            location.reload();
             return;
         }
 
-        alert("Su reserva se ha realizado correctamente. Proceda a realizar el pago correspondiente según el método elegido. ¡Muchas gracias!");
-        location.reload();
+        if(respuesta.status === "error" && respuesta.mensaje === "no_logueado") {
+            alert("Debes iniciar sesión para reservar");
+            return;
+        }
+
+        if(respuesta.status === "ok") {
+            alert("Su reserva se ha realizado correctamente. Proceda a realizar el pago correspondiente según el método elegido. ¡Muchas gracias!");
+            location.reload();
+        }
+        
     })
     .catch(error => {
         console.error(error);
         alert("Error al guardar la reserva");
     });
 }
+
+//--------------------------------Botón logotipo AquaBirthDay calendario-----------------------------------
 
 document.getElementById("alertaInfo").onclick = function() {
     alert(`¡Bienvenido/a a AquaBirthDay!
@@ -318,6 +327,7 @@ botones.forEach(boton => {
 
         if(boton.classList.contains("misReservas")) {
             document.getElementById("infoMisReservas").classList.remove("hidden");
+            cargarMisReservas();
         }
 
         if(boton.classList.contains("tarifas")) {
@@ -364,6 +374,10 @@ btnRegistro.onclick = async () => {
     let data = await res.json();
 
     mensajeAuth.innerText = data.mensaje;
+
+    if(data.mensaje.includes("correctamente")) {
+        comprobarSesion();
+    }
 };
 
 //Funcionalidad para el login de usuarios
@@ -387,5 +401,89 @@ btnLogin.onclick = async () => {
 
     mensajeAuth.innerText = data.mensaje;
 
+    if(data.mensaje === "Login correcto") {
+        comprobarSesion();
+    }
+
 };
+
+//------------------------------------Función para cerrar sesión (logout)-------------------------
+
+let btnLogout = document.getElementById("btnLogout");
+
+btnLogout.onclick = async () => {
+
+    let res = await fetch("php/logout.php");
+    let data = await res.json();
+
+    mensajeAuth.innerText = data.mensaje;
+
+    document.querySelector(".registro").classList.remove("hidden");
+    document.querySelector(".misReservas").classList.add("hidden");
+
+    document.getElementByIdById("btnLogout").classList.add("hidden");
+
+    ocultarTodo();
+    document.getElementById("infoRegistro").classList.remove("hidden");
+
+};
+
+//----------------------------------Control de sesiones activas-------------------------------
+
+async function comprobarSesion() {
+
+    let res = await fetch("php/check_session.php");
+    let data = await res.json();
+
+    if(data.logueado) {
+
+        document.querySelector(".misReservas").classList.add("hidden");
+        document.querySelector(".misReservas").classList.remove("hidden");
+        document.getElementById("mensajeAuth").innerText = "Bienvenido/a, " + data.email;
+
+        document.getElementById("btnLogout").classList.remove("hidden");
+
+        ocultarTodo();
+        document.getElementById("infoMisReservas").classList.remove("hidden");
+    }
+}
+
+comprobarSesion();
+
+//-------------------------------Función para visualizar las reservas en Mis Reservas----------------
+
+async function cargarMisReservas() {
+
+    let res = await fetch("php/obtener_mis_reservas.php");
+    let reservas = await res.json();
+
+    let contenedor = document.getElementById("contenedorReservas");
+    contenedor.innerHTML = "";
+
+    if(reservas.leght === 0) {
+        contenedor.innerHTML = "<p>No tienes ninguna reserva realizada aún</p>";
+        return;
+    }
+    
+    reservas.forEach(r => {
+
+        let div = document.createElement("div");
+
+        div.innerHTML = `
+            <p><b>Fecha:</b> ${r.fecha}</p>
+            <p><b>Hora:</b> ${r.hora}</p>
+            <p><b>Tutor::</b> ${r.nombre}</p>
+            <p><b>Cumpleañero:</b> ${r.cumple}</p>
+            <p><b>Invitados:</b> ${r.cantidad}</p>
+            <hr>
+        `;
+
+        contenedor.appendChild(div);
+
+    });
+
+}
+
+
+
 
