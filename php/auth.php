@@ -6,9 +6,9 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 $accion = $_POST["accion"];
 
-$passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
 if($accion === "registro") {
+
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $conn -> prepare($sql);
