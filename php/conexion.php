@@ -4,7 +4,7 @@ $host = "localhost";
 $user = "root";
 $password = "";
 $db = "reservas_cumple";
-$port = 3307;
+$port = 3306;
 
 $conn = new mysqli($host,$user,$password,$db, $port);
 

@@ -3,16 +3,16 @@
 session_start();
 include("conexion.php");
 
-if(!isset($_SESSION["usuario"])) {
+if(!isset($_SESSION["usuarios"])) {
     echo json_encode([]);
     exit;
 }
 
-$email = $_SESSION["usuario"];
+$email = $_SESSION["usuarios"];
 
 $sql = "SELECT r.fecha, r.hora, t.nombre, c.nombre AS cumple, i.cantidad FROM tabla_reserva r
         JOIN tabla_tutor t ON r.id_tutor = t.id_tutor
-        JOIN tabla_cumpleañero c ON r.id_cumpleanero = c.id_cumpleanero
+        JOIN tabla_cumpleanero c ON r.id_cumpleanero = c.id_cumpleanero
         JOIN tabla_invitados i ON r.id_invitados = i.id_invitados
         WHERE r.usuario_email = ?";
 

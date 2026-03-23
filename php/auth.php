@@ -26,7 +26,7 @@ if($accion === "registro") {
     $stmt -> bind_param("ss", $email, $passwordHash);
     $stmt -> execute();
 
-    $_SESSION["usuario"] = $email;
+    $_SESSION["usuarios"] = $email;
 
     echo json_encode(["mensaje" => "Te has registrado correctamente"]);
 
@@ -49,7 +49,7 @@ if($accion === "login") {
 
     if(password_verify($password, $usuario["password"])) {
 
-        $_SESSION["usuario"] = $email;
+        $_SESSION["usuarios"] = $email;
 
         echo json_encode(["mensaje" => "Login correcto"]);
 

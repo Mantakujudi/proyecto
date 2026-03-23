@@ -173,6 +173,24 @@ h1 {
     text-align: justify;
 }
 
+/* -------------- revisar este css del contenedor Mis reservas!!!! -----------------------------*/
+#contenedorReservas {
+    display: flex;
+    flex-direction: column; /* este bloque */
+    gap: 20px; 
+}
+
+#contenedorReservas div {
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 10px; /* este otr */
+    border: 2px solid purple;
+}
+
+#contenedorReservas div {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+} /* y este */
+
 .imagen1 {
     margin-top: -10%;
     width: 90%;

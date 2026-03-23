@@ -273,6 +273,8 @@ También puedes pinchar en el logotipo de AquaBirthDay para volver hacia atrás 
 
 }
 
+//----------------------------------Botón logotipo AquaBirthDay formulario----------------------------------- 
+
 document.getElementById("btnVolverCalendario").onclick = function() {
 
     // ocultar formulario
@@ -287,6 +289,8 @@ document.getElementById("btnVolverCalendario").onclick = function() {
     horasDiv.style.display = "";
 
 }
+
+//----------------------------------Botón logotipo AquaBirthDay confirmación----------------------------------
 
 document.getElementById("btnVolver").onclick = function() {
 
@@ -354,7 +358,7 @@ let btnRegistro = document.getElementById("btnRegistro");
 let btnLogin = document.getElementById("btnLogin");
 let mensajeAuth = document.getElementById("mensajeAuth");
 
-//Funcionalidad para el registro de usuarios
+//---------------------------------------Funcionalidad para el registro de usuarios------------------
 
 btnRegistro.onclick = async () => {
 
@@ -380,7 +384,7 @@ btnRegistro.onclick = async () => {
     }
 };
 
-//Funcionalidad para el login de usuarios
+//--------------------------------------Funcionalidad para el login de usuarios-----------------------------------
 
 btnLogin.onclick = async () => {
 
@@ -421,7 +425,7 @@ btnLogout.onclick = async () => {
     document.querySelector(".registro").classList.remove("hidden");
     document.querySelector(".misReservas").classList.add("hidden");
 
-    document.getElementByIdById("btnLogout").classList.add("hidden");
+    document.getElementById("btnLogout").classList.add("hidden");
 
     ocultarTodo();
     document.getElementById("infoRegistro").classList.remove("hidden");
@@ -460,7 +464,7 @@ async function cargarMisReservas() {
     let contenedor = document.getElementById("contenedorReservas");
     contenedor.innerHTML = "";
 
-    if(reservas.leght === 0) {
+    if(reservas.length === 0) {
         contenedor.innerHTML = "<p>No tienes ninguna reserva realizada aún</p>";
         return;
     }
@@ -472,7 +476,7 @@ async function cargarMisReservas() {
         div.innerHTML = `
             <p><b>Fecha:</b> ${r.fecha}</p>
             <p><b>Hora:</b> ${r.hora}</p>
-            <p><b>Tutor::</b> ${r.nombre}</p>
+            <p><b>Tutor:</b> ${r.nombre}</p>
             <p><b>Cumpleañero:</b> ${r.cumple}</p>
             <p><b>Invitados:</b> ${r.cantidad}</p>
             <hr>
