@@ -479,6 +479,10 @@ async function cargarMisReservas() {
             <p><b>Tutor:</b> ${r.nombre}</p>
             <p><b>Cumpleañero:</b> ${r.cumple}</p>
             <p><b>Invitados:</b> ${r.cantidad}</p>
+            
+            <button onclick="cancelarReserva(${r.id_reserva})">
+                Cancelar reserva
+            </button>
             <hr>
         `;
 
@@ -488,6 +492,31 @@ async function cargarMisReservas() {
 
 }
 
+//------------------------------------Función para cancelar reservas en Mis Reservas-------------------------------
 
+async function cancelarReserva(id) {
+
+    let confirmar = confirm("¿Está seguro de cancelar esta reserva?");
+    if(!confirmar) return;
+
+    let datos = new FormData();
+    datos.append("id_reserva", id);
+
+    let res = await fetch("php/cancelar_reserva.php", {
+        method: "POST",
+        body: datos
+    });
+
+    let data = await res.json();
+
+    if(data.status === "ok") {
+        alert("Reserva cancelada con éxito");
+        cargarMisReservas();
+    } else{
+        alert("Error al cancelar la reserva");
+
+        cancelarReserva();
+    }
+}
 
 

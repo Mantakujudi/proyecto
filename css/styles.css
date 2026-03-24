@@ -67,7 +67,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background-color:rgb(230, 209, 175);
+    background-color:rgba(230, 209, 175, 0.808);
     border: 2px solid rgb(192, 9, 216);
     color: rgb(192, 9, 216);
     border-radius: 10px;
