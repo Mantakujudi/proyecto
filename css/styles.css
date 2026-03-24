@@ -24,26 +24,32 @@ body {
 
 .fila {
     display: flex;
+    flex-grow: 1;
+    align-items: stretch;
+    min-height: 0; 
     gap: 20px;
-    height: 75%; 
 }
 
-#categorias,
-#info {
-    height: 100%;
+.categorias, .info {
+    display: inline-flex;
+    vertical-align: top;
+    display: flex;
+    box-sizing: border-box;
 }
 
-#info {
-    width: 90%;
-    position: relative;
-}
 
-#info > div {
+.info > div {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: rgba(222, 240, 234, 0.808);
+    border: 2px solid rgb(192, 9, 216);
+    border-radius: 10px;
     width: 100%;
     height: 100%;
     padding: 20px;
+    overflow: hidden;
 }
-
 
 h1 {
     background-color: rgb(222, 240, 234, 0.808);
@@ -53,9 +59,14 @@ h1 {
     padding: 2%
 }
 
+.bloqueInfo h1 {
+    width: 95,5%;
+}
+
 .bloqueInfo {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     background-color:rgb(230, 209, 175);
     border: 2px solid rgb(192, 9, 216);
     color: rgb(192, 9, 216);
@@ -67,104 +78,36 @@ h1 {
     gap: 20px;
 }
 
-#bloqueInfo {
+.bloqueInfo > .categorias, .bloqueInfo > .info {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-#bloqueInfo {
-    align-items: stretch;
-}
-
-#bloqueInfo > #categorias,
-#bloqueInfo > #info {
-    display: flex;
-}
-
-#categorias {
-    width: 30%;
-    margin-right: 5%;
-}
-
-#info {
-    width: 65%;
-}
-
-#bloqueInfo {
-    align-items: stretch;
-}
-
-#bloqueInfo h1 {
-    width: 95%;
-}
-
-#categorias, #info {
-    display: inline-flex;
-    vertical-align: top;
-}
-
-#bloqueInfo {
-    display:flex;
-    flex-direction: column;
 }
 
 .categorias {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: rgb(222, 240, 234, 0.808);
     border: 2px solid rgb(192, 9, 216);
     border-radius: 20px;
     flex: 1;
+    width: 30%;
     padding: 20px;
+    margin-right: 5%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     justify-content: center;
-    
 }
 
-#categorias {
-    width: 30%;
-}
-
-#categorias {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#info {
-    position: relative;
-}
-
-.registro:hover,
-.aquabirthday:hover,
-.comoReservo:hover,
-.misReservas:hover,
-.tarifas:hover,
-.normas:hover,
-.contacto:hover,
-.imagen:hover {
+.registro:hover, .aquabirthday:hover, .comoReservo:hover, .misReservas:hover, .tarifas:hover, .normas:hover, .contacto:hover, .imagen:hover {
     background-color: rgb(239, 193, 246);
     color: white;
     cursor: pointer;
 }
 
-.info > div {
-    background-color: rgba(222, 240, 234, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-}
-
-#info {
+.info {
     display: flex;
+    position: relative;
     align-items: stretch;
-}
-
-#info {
     width: 65%;
 }
 
@@ -173,23 +116,33 @@ h1 {
     text-align: justify;
 }
 
-/* -------------- revisar este css del contenedor Mis reservas!!!! -----------------------------*/
+#infoMisReservas {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+}
+
 #contenedorReservas {
     display: flex;
-    flex-direction: column; /* este bloque */
-    gap: 20px; 
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    gap: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(192, 9, 216) rgba(222, 240, 234, 0.808);
 }
 
 #contenedorReservas div {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgb(192, 9, 216);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 15px;
-    border-radius: 10px; /* este otr */
-    border: 2px solid purple;
+    border-radius: 10px;
+    text-align: justify;
+    flex-shrink: 0;
 }
-
-#contenedorReservas div {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-} /* y este */
 
 .imagen1 {
     margin-top: -10%;
