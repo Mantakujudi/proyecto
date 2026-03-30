@@ -242,7 +242,7 @@ h1 {
 #horas {
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
 }
 
 .hora-ocupada {
@@ -269,7 +269,7 @@ h1 {
 
 .btnVolverCalendario {
     cursor: pointer;
-    height: 100px;    
+    height: 100px;
 }
 
 #formReserva {
@@ -284,14 +284,14 @@ h1 {
 }
 
 .tutor, .cumpleañero, .invitados, .cafeteria {
-    color: rgb(192, 9, 216); 
+    color: rgb(192, 9, 216);
 	border-radius: 10px;
 	display: flex;
     flex-direction: column;
 	font-family: Arial, Helvetica, sans-serif;
     border: 2px solid  rgb(233, 194, 132);
-    width: 90%;       
-    padding: 15px;    
+    width: 90%;
+    padding: 15px;
     margin: 5px auto;
 }
 

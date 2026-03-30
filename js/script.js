@@ -219,7 +219,7 @@ form.addEventListener("submit",function (e) {
 
 });
 
-//----------------------------------------------------------- Función para guardar la reserva del cumpleaños -------------------------------
+//----------------------------------------------------Función para guardar la reserva del cumpleaños -------------------------------
 
 function guardarReserva(datos) {
 
@@ -262,7 +262,7 @@ function guardarReserva(datos) {
     });
 }
 
-//--------------------------------Botón logotipo AquaBirthDay calendario-----------------------------------
+//----------------------------------------Botón logotipo AquaBirthDay calendario-----------------------------------
 
 document.getElementById("alertaInfo").onclick = function() {
     alert(`¡Bienvenido/a a AquaBirthDay!
@@ -273,7 +273,7 @@ También puedes pinchar en el logotipo de AquaBirthDay para volver hacia atrás 
 
 }
 
-//----------------------------------Botón logotipo AquaBirthDay formulario----------------------------------- 
+//-----------------------------------------Botón logotipo AquaBirthDay formulario----------------------------------- 
 
 document.getElementById("btnVolverCalendario").onclick = function() {
 
@@ -290,7 +290,7 @@ document.getElementById("btnVolverCalendario").onclick = function() {
 
 }
 
-//----------------------------------Botón logotipo AquaBirthDay confirmación----------------------------------
+//----------------------------------------Botón logotipo AquaBirthDay confirmación----------------------------------
 
 document.getElementById("btnVolver").onclick = function() {
 
@@ -303,7 +303,7 @@ document.getElementById("btnVolver").onclick = function() {
 
 generarCalendario();
 
-//--------------------------------------Función para enlazar la categoría con su info------------------------------
+//------------------------------------------Función para enlazar la categoría con su info------------------------------
 
 let botones = document.querySelectorAll("#categorias p");
 let contenidos = document.querySelectorAll("#info > div");
@@ -352,7 +352,7 @@ ocultarTodo();
 document.getElementById("infoRegistro").classList.remove("hidden");
 
 
-//---------------------------------Registro y Login de los usuarios---------------------------------
+//----------------------------------------Registro y Login de los usuarios---------------------------------
 
 let btnRegistro = document.getElementById("btnRegistro");
 let btnLogin = document.getElementById("btnLogin");
