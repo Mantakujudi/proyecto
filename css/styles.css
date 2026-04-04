@@ -10,8 +10,7 @@ body {
     height: 100%; 
     margin: 0; 
     font-family: Arial, Helvetica, sans-serif; 
-    text-align: center; 
-    cursor: url("../img/puntero.png"), auto; 
+    text-align: center;
 }
 
 .contenedorPrincipal { 
