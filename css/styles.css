@@ -1,353 +1,355 @@
-html {
-    min-height: 100vh;
-    margin: 0;
+html { 
+    min-height: 100vh; 
+    margin: 0; 
 }
 
-body {
-    background-image: url("../img/fondo.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    overflow: hidden;
-    cursor: url("../img/puntero.png"), auto;
+body { 
+    background-image: url("../img/fondo.png"); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 100%; 
+    margin: 0; 
+    font-family: Arial, Helvetica, sans-serif; 
+    text-align: center; 
+    cursor: url("../img/puntero.png"), auto; 
 }
 
-.contenedorPrincipal {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.fila {
-    display: flex;
-    flex-grow: 1;
-    align-items: stretch;
+.contenedorPrincipal { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 30px; 
+} 
+    
+.fila { 
+    display: flex; 
+    flex-grow: 1; 
+    align-items: stretch; 
     min-height: 0; 
-    gap: 20px;
+    gap: 20px; 
 }
 
-.categorias, .info {
-    display: inline-flex;
-    vertical-align: top;
-    display: flex;
-    box-sizing: border-box;
+.categorias, .info { 
+    display: inline-flex; 
+    vertical-align: top; 
+    display: flex; 
+    box-sizing: border-box; 
 }
 
-
-.info > div {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: rgba(222, 240, 234, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    overflow: hidden;
+.info > div { 
+    display: flex; 
+    flex-direction: column; 
+    box-sizing: border-box; 
+    background-color: rgba(222, 240, 234, 0.808); 
+    border: 2px solid rgb(192, 9, 216); 
+    border-radius: 10px; 
+    width: 100%; 
+    height: 100%; 
+    padding: 20px; 
+    overflow: hidden; 
 }
 
-h1 {
-    background-color: rgb(222, 240, 234, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    border-radius: 10px;
-    margin: 0px;
-    padding: 2%
+h1 { 
+    background-color: rgb(222, 240, 234, 0.808); 
+    border: 2px solid rgb(192, 9, 216); 
+    border-radius: 10px; 
+    margin: 0px; 
+    padding: 2% 
 }
 
-.bloqueInfo h1 {
-    width: 95,5%;
+.bloqueInfo h1 { 
+    width: 95.5%; 
+} 
+
+.bloqueInfo { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+    background-color:rgba(230, 209, 175, 0.808); 
+    border: 2px solid rgb(192, 9, 216); 
+    color: rgb(192, 9, 216); 
+    border-radius: 10px; 
+    height: 600px; 
+    width: 40%; 
+    margin: 5%; 
+    padding: 3%; 
+    gap: 20px; 
 }
 
-.bloqueInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color:rgba(230, 209, 175, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    color: rgb(192, 9, 216);
-    border-radius: 10px;
-    height: 600px;
-    width: 40%;
-    margin: 5%;
-    padding: 3%;
-    gap: 20px;
+.bloqueInfo > .categorias, .bloqueInfo > .info { 
+    display: flex; 
+} 
+
+.categorias { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    background-color: rgb(222, 240, 234, 0.808); 
+    border: 2px solid rgb(192, 9, 216); 
+    border-radius: 20px; 
+    flex: 1; 
+    width: 30%; 
+    padding: 20px; 
+    margin-right: 5%; 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 20px; 
+    justify-content: center; 
 }
 
-.bloqueInfo > .categorias, .bloqueInfo > .info {
-    display: flex;
+.registro:hover, .aquabirthday:hover, .comoReservo:hover, .misReservas:hover, .tarifas:hover, .normas:hover, .contacto:hover, .imagen:hover { 
+    background-color: rgb(239, 193, 246); 
+    color: white; 
+    cursor: pointer; 
+} 
+
+.info { 
+    display: flex; 
+    position: relative; 
+    align-items: stretch; 
+    width: 65%; 
 }
 
-.categorias {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgb(222, 240, 234, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    border-radius: 20px;
-    flex: 1;
-    width: 30%;
-    padding: 20px;
-    margin-right: 5%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    justify-content: center;
+#infoRegistro, #infoAquabirthday, #infoReserva, #infoMisReservas, #infoTarifas, #infoNormativa, #infoContacto { 
+    white-space: pre-line; 
+    text-align: justify; 
+} 
+
+#infoMisReservas { 
+    display: flex; 
+    flex-direction: column; 
+    box-sizing: border-box; 
+    height: 100%; 
+} 
+
+#contenedorReservas { 
+    display: flex; 
+    flex-direction: column; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    gap: 20px; 
+    scrollbar-width: thin; 
+    scrollbar-color: rgb(192, 9, 216) rgba(222, 240, 234, 0.808); 
 }
 
-.registro:hover, .aquabirthday:hover, .comoReservo:hover, .misReservas:hover, .tarifas:hover, .normas:hover, .contacto:hover, .imagen:hover {
-    background-color: rgb(239, 193, 246);
-    color: white;
-    cursor: pointer;
+#contenedorReservas div { 
+    background-color: rgba(255, 255, 255, 0.5); 
+    border: 2px solid rgb(192, 9, 216); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    padding: 15px; 
+    border-radius: 10px; 
+    text-align: justify; 
+    flex-shrink: 0; 
+} 
+
+.imagen1 { 
+    margin-top: -10%; 
+    width: 90%; 
+    padding: 5%; 
+} 
+
+#btnRegistro, #btnLogin, #btnLogout { 
+    width: 25%; 
 }
 
-.info {
-    display: flex;
-    position: relative;
-    align-items: stretch;
-    width: 65%;
+.controlCalendario { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px; 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+    padding: 10px; 
+} 
+
+.mesActual { 
+    font-size: 20px; 
+} 
+
+.calendarioCompleto { 
+    background-color:rgba(222, 240, 234, 0.808); 
+    border-radius: 10px; 
+    border: 2px solid rgb(192, 9, 216); 
+    overflow: hidden; 
+    height: 775px; 
+    width: 500px; 
+    color: rgb(192, 9, 216); 
+    padding: 20px; 
+    margin: 50px; 
 }
 
-#infoRegistro, #infoAquabirthday, #infoReserva, #infoMisReservas, #infoTarifas, #infoNormativa, #infoContacto {
-    white-space: pre-line;
-    text-align: justify;
+.diasSemana { 
+    display: grid; 
+    grid-template-columns: repeat(7, 1fr); 
+    max-width: 600px; 
+    margin: auto; 
+    margin-bottom: 10px; 
+    text-align: center; 
+    padding: 10px; 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+} 
+
+.calendar { 
+    display:grid; 
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 5px; 
+    max-width:600px; 
+    padding: 10px; 
+    margin:auto; 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+} 
+
+.calendar :hover { 
+    background-color: rgb(233, 194, 132); 
+    color: white; 
 }
 
-#infoMisReservas {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    height: 100%;
+.dia { 
+    background: white; 
+    padding:20px; 
+    cursor:pointer; 
+    transition: background-color 0.3s; 
+} 
+
+.dia.no-disponible, .dia.otro-mes { 
+    background-color:rgb(239, 193, 246); 
+    color: white; 
+    cursor: not-allowed; 
+} 
+
+.hidden { 
+    opacity: 0; 
+    pointer-events: none; 
+    position: absolute; 
+} 
+
+.horarios { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+    height: 100px; 
+    margin-top: 10px; 
+    padding: 10px; 
+} 
+
+.disponibilidad { 
+    font-size: 20px; 
+    margin-left: 30px; 
 }
 
-#contenedorReservas {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow-y: auto;
-    padding-right: 10px;
-    gap: 20px;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(192, 9, 216) rgba(222, 240, 234, 0.808);
+#horas { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+
+.hora-ocupada { 
+    background: red; 
+    color: white; 
+    cursor: not-allowed; 
+    border: none; 
 }
 
-#contenedorReservas div {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid rgb(192, 9, 216);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: justify;
-    flex-shrink: 0;
+#horas button { 
+    padding:10px; 
+    margin:5px; 
+    border:none; 
+    border-radius:5px; 
+    background:#4CAF50; 
+    color:white; 
+    cursor:pointer; 
+} 
+
+#horas button:disabled { 
+    background:red; 
+    cursor:not-allowed; 
+} 
+
+.btnVolverCalendario { 
+    cursor: pointer; 
+    height: 100px; 
+} 
+
+#formReserva { 
+    background-color:rgba(222, 240, 234, 0.808); 
+    border: 2px solid rgb(192, 9, 216); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    height: 775px; 
+    width: 500px; 
+    margin: 50px; 
+    padding: 20px; 
 }
 
-.imagen1 {
-    margin-top: -10%;
-    width: 90%;
-    padding: 5%;
-}
+.tutor, .cumpleañero, .invitados, .cafeteria { 
+    color: rgb(192, 9, 216); 
+    border-radius: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    font-family: Arial, Helvetica, sans-serif; 
+    border: 2px solid rgb(233, 194, 132); 
+    width: 90%; 
+    padding: 15px; 
+    margin: 5px auto; 
+} 
 
-.controlCalendario {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    border: 2px solid rgb(233, 194, 132);
-    border-radius: 10px;
-    padding: 10px;
-}
+legend { 
+    font-size: 16px; 
+    padding: 0 10px; 
+} 
 
-.mesActual {
-    font-size: 20px;
-}
+input, select, .datosConfirmacion { 
+    padding: 5px; 
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+} 
 
-.calendarioCompleto {
-    background-color:rgba(222, 240, 234, 0.808);
-    border-radius: 10px;
-    border: 2px solid rgb(192, 9, 216);
-    overflow: hidden;
-    height: 775px;
-    width: 500px;
-    color: rgb(192, 9, 216);
-    padding: 20px;
-    margin: 50px;  
-}
+.btnVolver, .btnVolverCalendario, .alertaInfo { 
+    cursor: pointer; 
+    height: 100px; 
+} 
 
-.diasSemana {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    max-width: 600px;
-    margin: auto;
-    margin-bottom: 10px;
-    text-align: center;
-    padding: 10px;
-    border: 2px solid rgb(233, 194, 132);
-    border-radius: 10px;
-}
+#confirmacionReserva { 
+    background-color:rgba(222, 240, 234, 0.808); 
+    border-radius: 10px; 
+    border: 2px solid rgb(192, 9, 216); 
+    overflow: hidden; 
+    height: 775px; 
+    width: 500px; 
+    color: rgb(192, 9, 216); 
+    margin: 50px; 
+    padding: 20px; 
+} 
 
-.calendar {
-    display:grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    max-width:600px;
-    padding: 10px;
-    margin:auto;
-    border: 2px solid rgb(233, 194, 132);
-    border-radius: 10px;
-}
+.datosConfirmacion { 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+    font-family: Arial, Helvetica, sans-serif; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+} 
 
-.calendar :hover {
-    background-color: rgb(233, 194, 132);
-    color: white;
-}
+.datosConfirmacion p, .datosConfirmacion div { 
+    margin: 9px 0; 
+    margin-left: 10px; 
+} 
 
-.dia{
-    background: white;
-    padding:20px;
-    cursor:pointer;
-    transition: background-color 0.3s;
-}
+.metodoPago, .normativa { 
+    border: 2px solid rgb(233, 194, 132); 
+    border-radius: 10px; 
+    margin-top: 10px; 
+} 
 
-.dia.no-disponible, .dia.otro-mes {
-    background-color:rgb(239, 193, 246);
-    color: white;
-    cursor: not-allowed;
-}
+label { 
+    width: 100px; 
+    margin-right: 10px; 
+} 
 
-.hidden{
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-}
-
-.horarios {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid rgb(233, 194, 132);
-    border-radius: 10px;
-    height: 100px;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.disponibilidad {
-    font-size: 20px;
-    margin-left: 30px;
-}
-
-#horas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hora-ocupada {
-    background: red;
-    color: white;
-    cursor: not-allowed;
-    border: none;
-}
-
-#horas button{
-    padding:10px;
-    margin:5px;
-    border:none;
-    border-radius:5px;
-    background:#4CAF50;
-    color:white;
-    cursor:pointer;
-}
-
-#horas button:disabled {
-    background:red;
-    cursor:not-allowed;
-}
-
-.btnVolverCalendario {
-    cursor: pointer;
-    height: 100px;
-}
-
-#formReserva {
-    background-color:rgba(222, 240, 234, 0.808);
-    border: 2px solid rgb(192, 9, 216);
-    border-radius: 10px;
-    overflow: hidden;
-    height: 775px;
-    width: 500px;
-    margin: 50px;
-    padding: 20px;
-}
-
-.tutor, .cumpleañero, .invitados, .cafeteria {
-    color: rgb(192, 9, 216);
-	border-radius: 10px;
-	display: flex;
-    flex-direction: column;
-	font-family: Arial, Helvetica, sans-serif;
-    border: 2px solid  rgb(233, 194, 132);
-    width: 90%;
-    padding: 15px;
-    margin: 5px auto;
-}
-
-legend {
-    font-size: 16px;
-    padding: 0 10px;
-}
-
-input, select, .datosConfirmacion {
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.btnVolver, .btnVolverCalendario, .alertaInfo {
-    cursor: pointer;
-    height: 100px;
-}
-
-#confirmacionReserva {
-    background-color:rgba(222, 240, 234, 0.808);
-    border-radius: 10px;
-    border: 2px solid rgb(192, 9, 216);
-    overflow: hidden;
-    height: 775px;
-    width: 500px;
-    color: rgb(192, 9, 216);
-    margin: 50px;
-    padding: 20px;
-}
-
-.datosConfirmacion {
-    border: 2px solid  rgb(233, 194, 132);
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;          
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.datosConfirmacion p, .datosConfirmacion div {
-    margin: 9px 0;
-    margin-left: 10px;
-}
-
-.metodoPago, .normativa {
-    border: 2px solid  rgb(233, 194, 132);
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-label {
-    width: 100px;
-    margin-right: 10px;
-}
-
-.btnReservar {
-    margin: 20px;
+.btnReservar { 
+    margin: 20px; 
 }

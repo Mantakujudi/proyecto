@@ -8,6 +8,13 @@ $accion = $_POST["accion"];
 
 if($accion === "registro") {
 
+    //-------validamos primero que la contraseña tenga los caracteres solicitados mediante
+    //-------expresión regular----------
+    if (!preg_match('/^(?=.*[A-Z])(?=.*[\W_]).{8,}$/', $password)) {
+        echo json_encode(["mensaje" => "Contraseña no válida"]);
+        exit;
+    }
+
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "SELECT * FROM usuarios WHERE email = ?";

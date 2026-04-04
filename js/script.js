@@ -81,7 +81,7 @@ function formatearFecha(fechaISO){
     return dia + " de " + nombreMeses[mes] + " de " + año;
 }
 
-document.getElementById("nextMes").onclick=function() {
+document.getElementById("nextMes").onclick = function() {
     mes++;
     if(mes > 11){
         mes = 0;
@@ -90,7 +90,7 @@ document.getElementById("nextMes").onclick=function() {
     generarCalendario();
 }
 
-document.getElementById("prevMes").onclick=function() {
+document.getElementById("prevMes").onclick = function() {
     mes--;
     if(mes < 0){
         mes = 11;
@@ -365,6 +365,14 @@ btnRegistro.onclick = async () => {
     let email = document.getElementById("emailUsuario").value;
     let password = document.getElementById("passwordUsuario").value;
 
+    //-------Validación de Contraseña mediante Expresión Regular--------------
+    const regex = /^(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+
+    if (!regex.test(password)) {
+        mensajeAuth.innerText = "La contraseña debe contener mínimo 8 caracteres, una mayúscula y un símbolo. ";
+        return;
+    }
+
     let datos = new FormData();
     datos.append("email", email);
     datos.append("password", password);
@@ -441,7 +449,6 @@ async function comprobarSesion() {
 
     if(data.logueado) {
 
-        document.querySelector(".misReservas").classList.add("hidden");
         document.querySelector(".misReservas").classList.remove("hidden");
         document.getElementById("mensajeAuth").innerText = "Bienvenido/a, " + data.email;
 
@@ -449,6 +456,11 @@ async function comprobarSesion() {
 
         ocultarTodo();
         document.getElementById("infoMisReservas").classList.remove("hidden");
+
+        cargarMisReservas();
+        
+    } else {
+        document.querySelector(".misReservas").classList.add("hidden");
     }
 }
 
@@ -480,9 +492,7 @@ async function cargarMisReservas() {
             <p><b>Cumpleañero:</b> ${r.cumple}</p>
             <p><b>Invitados:</b> ${r.cantidad}</p>
             
-            <button onclick="cancelarReserva(${r.id_reserva})">
-                Cancelar reserva
-            </button>
+            <button onclick="cancelarReserva(${r.id_reserva})">Cancelar reserva</button>
             <hr>
         `;
 
@@ -519,4 +529,5 @@ async function cancelarReserva(id) {
     }
 }
 
+document.querySelector(".misReservas").classList.add("hidden");
 
