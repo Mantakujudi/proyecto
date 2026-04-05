@@ -124,11 +124,11 @@ function seleccionarDia(dia) {
         let horas=[];
 
         if(diaSemana === 5) {
-            horas=["16:00","18:15"];
+            horas = ["16:00","18:15"];
         }
 
         if(diaSemana === 6) {
-            horas=["11:30","13:30"];
+            horas = ["11:30","13:30"];
         }
 
         horas.forEach(h => {
