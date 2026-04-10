@@ -307,49 +307,76 @@ generarCalendario();
 
 let botones = document.querySelectorAll("#categorias p");
 let contenidos = document.querySelectorAll("#info > div");
+let categoriaSelect = document.getElementById("categoriaSelect");
+
+const seccionPorClave = {
+    registro: "infoRegistro",
+    aquabirthday: "infoAquabirthday",
+    comoReservo: "infoReserva",
+    misReservas: "infoMisReservas",
+    tarifas: "infoTarifas",
+    normas: "infoNormativa",
+    contacto: "infoContacto"
+};
 
 function ocultarTodo() {
     contenidos.forEach(div => div.classList.add("hidden"));
 }
 
+//-------------------------------------Funcionalidad para el responsive de la página-----------------------------------
+
+function opcionSelectDisponible(clave) {
+    let opt = categoriaSelect && categoriaSelect.querySelector(`option[value="${clave}"]`);
+    return opt && !opt.hidden;
+}
+
+function mostrarSeccionPorClave(clave) {
+    let idInfo = seccionPorClave[clave];
+    if (!idInfo) return;
+    ocultarTodo();
+    document.getElementById(idInfo).classList.remove("hidden");
+    if (clave === "misReservas") {
+        cargarMisReservas();
+    }
+    if (categoriaSelect && opcionSelectDisponible(clave)) {
+        categoriaSelect.value = clave;
+    }
+}
+
+function setOpcionMisReservasVisible(visible) {
+    let opt = document.querySelector(".opcion-mis-reservas");
+    if (opt) {
+        opt.hidden = !visible;
+    }
+    if (!visible && categoriaSelect && categoriaSelect.value === "misReservas") {
+        mostrarSeccionPorClave("registro");
+    }
+}
+
 botones.forEach(boton => {
     boton.onclick = () => {
-
-        ocultarTodo();
-
-        if(boton.classList.contains("registro")) {
-            document.getElementById("infoRegistro").classList.remove("hidden");
-        }
-
-        if(boton.classList.contains("aquabirthday")) {
-            document.getElementById("infoAquabirthday").classList.remove("hidden");
-        }
-
-        if(boton.classList.contains("comoReservo")) {
-            document.getElementById("infoReserva").classList.remove("hidden");
-        }
-
-        if(boton.classList.contains("misReservas")) {
-            document.getElementById("infoMisReservas").classList.remove("hidden");
-            cargarMisReservas();
-        }
-
-        if(boton.classList.contains("tarifas")) {
-            document.getElementById("infoTarifas").classList.remove("hidden");
-        }
-
-        if(boton.classList.contains("normas")) {
-            document.getElementById("infoNormativa").classList.remove("hidden");
-        }
-
-        if(boton.classList.contains("contacto")) {
-            document.getElementById("infoContacto").classList.remove("hidden");
+        let clave = null;
+        if (boton.classList.contains("registro")) clave = "registro";
+        if (boton.classList.contains("aquabirthday")) clave = "aquabirthday";
+        if (boton.classList.contains("comoReservo")) clave = "comoReservo";
+        if (boton.classList.contains("misReservas")) clave = "misReservas";
+        if (boton.classList.contains("tarifas")) clave = "tarifas";
+        if (boton.classList.contains("normas")) clave = "normas";
+        if (boton.classList.contains("contacto")) clave = "contacto";
+        if (clave) {
+            mostrarSeccionPorClave(clave);
         }
     };
 });
 
-ocultarTodo();
-document.getElementById("infoRegistro").classList.remove("hidden");
+if (categoriaSelect) {
+    categoriaSelect.addEventListener("change", () => {
+        mostrarSeccionPorClave(categoriaSelect.value);
+    });
+}
+
+mostrarSeccionPorClave("registro");
+setOpcionMisReservasVisible(false);
 
 
 //----------------------------------------Registro y Login de los usuarios---------------------------------
@@ -435,8 +462,8 @@ btnLogout.onclick = async () => {
 
     document.getElementById("btnLogout").classList.add("hidden");
 
-    ocultarTodo();
-    document.getElementById("infoRegistro").classList.remove("hidden");
+    setOpcionMisReservasVisible(false);
+    mostrarSeccionPorClave("registro");
 
 };
 
@@ -454,13 +481,12 @@ async function comprobarSesion() {
 
         document.getElementById("btnLogout").classList.remove("hidden");
 
-        ocultarTodo();
-        document.getElementById("infoMisReservas").classList.remove("hidden");
-
-        cargarMisReservas();
+        setOpcionMisReservasVisible(true);
+        mostrarSeccionPorClave("misReservas");
         
     } else {
         document.querySelector(".misReservas").classList.add("hidden");
+        setOpcionMisReservasVisible(false);
     }
 }
 
